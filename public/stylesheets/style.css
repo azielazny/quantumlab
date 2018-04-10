@@ -1,0 +1,179 @@
+html {
+  font-size: 16px; }
+
+body {
+  padding: 3.125rem 0;
+  font-size: 0.875rem;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f8fafb; }
+
+.container {
+  max-width: 75rem; }
+
+button.more-info {
+  float: right;
+  border-radius: 23px;
+  background: #fff;
+  font-size: 0.625rem;
+  padding: 0.25rem 1rem;
+  margin-top: 0.625rem; }
+
+.hide-outline {
+  position: absolute;
+  left: -9999px; }
+
+/* boxes in header */
+.albums-title {
+  font-size: 1.125rem; }
+
+.box {
+  margin: 18px 0;
+  position: inherit; }
+  .box .box-cover {
+    box-shadow: 0 0 0.625rem 0 rgba(0, 0, 0, 0.5); }
+  .box .short-desc {
+    position: absolute;
+    z-index: 222;
+    color: #fff;
+    bottom: 0;
+    width: 100%;
+    background: -moz-linear-gradient(top, transparent 0%, transparent 10%, rgba(0, 0, 0, 0.3) 38%, rgba(0, 0, 0, 0.4) 100%);
+    background: -webkit-linear-gradient(top, transparent 0%, transparent 10%, rgba(0, 0, 0, 0.3) 38%, rgba(0, 0, 0, 0.4) 100%);
+    background: linear-gradient(to bottom, transparent 0%, transparent 10%, rgba(0, 0, 0, 0.3) 38%, rgba(0, 0, 0, 0.4) 100%);
+    padding: 1.25rem 0.625rem; }
+    .box .short-desc .album-title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-top: 1.25rem; }
+    .box .short-desc .score {
+      font-size: 2.25rem;
+      font-weight: 700;
+      float: left;
+      line-height: 1; }
+      .box .short-desc .score span {
+        color: #c1c1c1;
+        font-weight: 300; }
+  .box .album-description {
+    display: none;
+    position: absolute;
+    z-index: 3333;
+    color: #fff;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    align-items: center;
+    padding: 2.5rem; }
+    .box .album-description .album-short-desc {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -moz-line-clamp: 4;
+      line-clamp: 4;
+      -webkit-box-orient: vertical; }
+    .box .album-description p {
+      margin: 0.3125rem; }
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .box .short-desc .album-title {
+    font-size: 0.875rem; }
+  .box .short-desc .score {
+    font-size: 1.25rem; }
+  .box .album-description {
+    padding: 0.3125rem; }
+  button.more-info {
+    margin-top: 0; } }
+
+/* main content */
+#main-content {
+  margin-top: 1.375rem; }
+
+.album-of-month {
+  background-color: #fff;
+  padding: 1.25rem 1.875rem;
+  box-shadow: 0 0 0.3125rem 0 rgba(0, 0, 0, 0.08); }
+  .album-of-month > h3 {
+    font-size: 1.625rem;
+    font-weight: 700; }
+  .album-of-month .album-of-month-data {
+    margin: 2.75rem 0 4.375rem; }
+    .album-of-month .album-of-month-data .description {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 11;
+      -webkit-box-orient: vertical;
+      margin-bottom: 0.9375rem; }
+    .album-of-month .album-of-month-data img {
+      max-height: 18.4375rem; }
+    .album-of-month .album-of-month-data .facts {
+      font-size: 0.625rem; }
+      .album-of-month .album-of-month-data .facts p {
+        margin: 0.625rem 0; }
+        .album-of-month .album-of-month-data .facts p span {
+          color: #c1c1c1; }
+      .album-of-month .album-of-month-data .facts > p:first-child {
+        font-size: 0.75rem; }
+
+.marker {
+  z-index: 55555;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  margin-left: -1.875rem; }
+  .marker > .line {
+    position: absolute;
+    width: 3.75rem;
+    background: #000;
+    height: 1px; }
+  .marker > .line:before {
+    content: '\25CF';
+    font-size: 1rem;
+    position: absolute;
+    top: -0.75rem;
+    right: -0.3125rem; }
+  .marker > .line:after {
+    content: '\25CF';
+    position: absolute;
+    top: -0.5rem;
+    left: -0.3125rem;
+    font-size: 0.625rem; }
+
+.photo-marker {
+  display: table-row; }
+
+@media (max-width: 576px) {
+  .marker {
+    display: none; } }
+
+/* ranking */
+#ranking {
+  background-color: #fff;
+  padding: 1.25rem 0;
+  box-shadow: 0 0 0.3125rem 0 rgba(0, 0, 0, 0.08); }
+  #ranking > h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0.9375rem 1.25rem 0.9375rem; }
+    #ranking > h3 span {
+      font-size: 0.625rem;
+      color: #c9c9c9;
+      width: 100%;
+      display: block;
+      font-weight: 300; }
+  #ranking #full-list {
+    margin: 1.5rem 0.625rem 0.25rem;
+    border: 1px solid #c1c1c1; }
+
+#ranks ul {
+  border-bottom: 1px solid #e5e5e5;
+  list-style-type: none;
+  padding: 0;
+  margin: 0; }
+  #ranks ul li {
+    border-top: 1px solid #e5e5e5;
+    padding: 0.625rem 0.5rem; }
+
+/*# sourceMappingURL=style.css.map */

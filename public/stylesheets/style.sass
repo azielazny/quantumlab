@@ -1,0 +1,200 @@
+$white: #fff
+$bgcolor: #f8fafb
+$grey: #c1c1c1
+$secondGrey: #c9c9c9
+$black: #000
+
+$remBase: 16px
+
+
+@function remCal($pixelBasedNum)
+  @return $pixelBasedNum / $remBase * 1rem
+
+
+@mixin flex
+  background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 10%,rgba(0,0,0,0.3) 38%, rgba(0,0,0,0.4) 100%)
+  background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 10%,rgba(0,0,0,0.3) 38%,rgba(0,0,0,0.4) 100%)
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 10%,rgba(0,0,0,0.3) 38%,rgba(0,0,0,0.4) 100%)
+
+html
+  font-size: $remBase
+
+body
+  padding: remCal(50px) 0
+  font-size: remCal(14px)
+  font-family: 'Montserrat', sans-serif
+  background-color: $bgcolor
+
+.container
+  max-width: remCal(1200px)
+
+button.more-info
+  float: right
+  border-radius: 23px
+  background: $white
+  font-size: remCal(10px)
+  padding: remCal(4px) remCal(16px)
+  margin-top: remCal(10px)
+
+.hide-outline
+  position: absolute
+  left: -9999px
+
+/* boxes in header */
+.albums-title
+  font-size: remCal(18px)
+
+.box
+  margin: 18px 0
+  position: inherit
+  .box-cover
+    box-shadow: 0 0 remCal(10px) 0 rgba(0, 0, 0, 0.5)
+  .short-desc
+    position: absolute
+    z-index: 222
+    color: $white
+    bottom: 0
+    width: 100%
+    @include flex()
+    padding: remCal(20px) remCal(10px)
+    .album-title
+      font-size: remCal(16px)
+      font-weight: 700
+      margin-top: remCal(20px)
+    .score
+      font-size: remCal(36px)
+      font-weight: 700
+      float: left
+      line-height: 1
+      span
+        color: $grey
+        font-weight: 300
+
+  .album-description
+    display: none
+    position: absolute
+    z-index: 3333
+    color: $white
+    bottom: 0
+    width: 100%
+    height: 100%
+    background-color: rgba(0,0,0,0.7)
+    text-align: center
+    align-items: center
+    padding: remCal(40px)
+    .album-short-desc
+      text-overflow: ellipsis
+      overflow: hidden
+      display: -webkit-box
+      -webkit-line-clamp: 4
+      -moz-line-clamp: 4
+      line-clamp: 4
+      -webkit-box-orient: vertical
+    p
+      margin: remCal(5px)
+@media (min-width: 768px) and (max-width: 991px)
+  .box
+    .short-desc
+      .album-title
+        font-size: remCal(14px)
+      .score
+        font-size: remCal(20px)
+    .album-description
+      padding: remCal(5px)
+  button.more-info
+    margin-top: 0
+
+/* main content */
+#main-content
+  margin-top: remCal(22px)
+
+.album-of-month
+  background-color: $white
+  padding: remCal(20px) remCal(30px)
+  box-shadow: 0 0 remCal(5px) 0 rgba(0, 0, 0, 0.08)
+
+  & > h3
+    font-size: remCal(26px)
+    font-weight: 700
+  .album-of-month-data
+    margin: remCal(44px) 0 remCal(70px)
+    .description
+      text-overflow: ellipsis
+      overflow: hidden
+      display: -webkit-box
+      -webkit-line-clamp: 11
+      -webkit-box-orient: vertical
+      margin-bottom: remCal(15px)
+    img
+      max-height: remCal(295px)
+    .facts
+      font-size: remCal(10px)
+      p
+        margin: remCal(10px) 0
+        span
+          color: $grey
+      &>p:first-child
+        font-size: remCal(12px)
+
+.marker
+  z-index: 55555
+  position: relative
+  display: inline-flex
+  align-items: center
+  margin-left: remCal(-30px)
+
+  &>.line
+    position: absolute
+    width: remCal(60px)
+    background: $black
+    height: 1px
+
+  &>.line:before
+    content: '\25CF'
+    font-size: remCal(16px)
+    position: absolute
+    top: remCal(-12px)
+    right: remCal(-5px)
+
+  &>.line:after
+    content: '\25CF'
+    position: absolute
+    top: remCal(-8px)
+    left: remCal(-5px)
+    font-size: remCal(10px)
+.photo-marker
+  display: table-row
+
+@media (max-width: 576px)
+  .marker
+    display: none
+
+/* ranking */
+#ranking
+  background-color: $white
+  padding: remCal(20px) 0
+  box-shadow: 0 0 remCal(5px) 0 rgba(0, 0, 0, 0.08)
+  &>h3
+    font-size: remCal(24px)
+    font-weight: 700
+    margin: 0 remCal(15px) remCal(20px) remCal(15px)
+    span
+      font-size: remCal(10px)
+      color: $secondGrey
+      width: 100%
+      display: block
+      font-weight: 300
+  #full-list
+    margin: remCal(24px) remCal(10px) remCal(4px)
+    border: 1px solid $grey
+#ranks
+  ul
+    border-bottom: 1px solid #e5e5e5
+    list-style-type: none
+    padding: 0
+    margin: 0
+    li
+      border-top: 1px solid #e5e5e5
+      padding: remCal(10px) remCal(8px)
+
+

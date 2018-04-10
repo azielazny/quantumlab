@@ -1,0 +1,127 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Projekt</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="manifest" href="site.webmanifest">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,700" rel="stylesheet">
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+
+</head>
+<body>
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade
+    your browser</a> to improve your experience and security.</p>
+<![endif]-->
+
+<!-- Add your site or application content here -->
+
+<div class="container">
+    <header id="albums">
+        <div class="row">
+            <h1 class="albums-title col-sm-12">Najlepsze albumy roku <strong><%= year %></strong></h1>
+        </div>
+        <section id="albums-gallery" class="row">
+            <h2 class="hide-outline">Najpopularniejsze albumy</h2>
+
+            <% albums.slice(0, 4).map(function(album, index) { %>
+            <div class="col-sm-6 col-md-3">
+                <div class="box" data-id="<%= index %>">
+                    <div class="short-desc">
+                        <div class="album-title"><%= album.album %></div>
+                        <div class="score"><%= album.score %><span>/10</span></div>
+                        <button class="more-info btn btn-default btn-sm">WIĘCEJ</button>
+                    </div>
+                    <div class="album-description">
+                        <div>
+                            <p class="album-title"><strong><%= album.album %></strong></p>
+                            <p class="album-short-desc"><%= album.description.substring(0, 100) %></p>
+                        </div>
+                    </div>
+                    <div class="box-cover">
+                        <img src="<%= album.cover %>" class="img-fluid" alt="<%= album.artist %> <%= album.title %>">
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+
+        </section>
+    </header>
+
+    <main id="main-content" class="row">
+        <h2 class="hide-outline">Główna treść strony</h2>
+
+        <article id="album-of-month" class="col-12 col-md-8">
+            <div class="album-of-month">
+                <h3>Album miesiąca</h3>
+                <% albums.slice(0, 4).map(function(album, index) { %>
+                <div class="album-of-month-data row">
+                    <div class="description col-12 col-xl-3 desc align-self-center"><%= album.description.substring(0, 200) %></div>
+                    <div class="col-12 col-sm-7 col-xl-6 align-self-center text-center">
+                        <div class="photo-marker">
+                            <img src="<%= album.cover %>" class="img-fluid"
+                                 alt="<%= album.artist %> - <%= album.album %>">
+                            <div class="marker hidden-xs">
+                                <div class="line">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-12 col-sm-5 col-xl-3 facts align-self-center text-center">
+                        <p><strong>Ciekawostki:</strong></p>
+                        <p><span>Ilość wydanych płyt:</span> <%= album.facts[0].sale %></p>
+                        <p><span>Czas trwania:</span> <%= album.facts[0].time %> minut</p>
+                        <p><span>Ilość utworów:</span> <%= album.facts[0].songs %></p>
+                    </div>
+                </div>
+                <% }) %>
+            </div>
+
+        </article>
+
+        <aside id="the-best-of" class="col-12 col-md-4">
+            <div id="ranking">
+                <h3>Najlepsze albumy <span>wg czytelników</span>
+                </h3>
+                <div id="ranks" class="">
+                    <ul class="albums col-12">
+                        <% albums.forEach(function(album, index) { %>
+                        <li><%= index + 1 %>. <%= album.artist %></li>
+                        <% }) %>
+                    </ul>
+
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <button class="more-info btn btn-default btn-sm" id="full-list">ZOBACZ PEŁNĄ LISTĘ
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<script src="/javascripts/main.js"></script>
+
+</body>
+</html>
