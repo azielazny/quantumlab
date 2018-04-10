@@ -2,7 +2,7 @@
 ready application using expressjs, jquery, bootstrap
 
 
-#installation
+# installation
 If you have the node and expressjs, then in the console enter:
 
 `npm install`
